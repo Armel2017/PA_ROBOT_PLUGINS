@@ -1,10 +1,12 @@
-package org.Plugins;
+package org.Plugins.Attaque;
 
 import java.lang.annotation.*;
 
-public class Attaque {
+public class AttaqueDeBase {
 	
 	public static void main(String [] args)
 	{
+		
+	}
 
 }
