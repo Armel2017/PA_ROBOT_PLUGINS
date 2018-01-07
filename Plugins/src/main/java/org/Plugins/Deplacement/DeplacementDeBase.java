@@ -1,7 +1,7 @@
-package org.Plugins.Deplacement;
+package org.plugins.deplacement;
 
-public class DeplacementDeBase {
+public @interface DeplacementDeBase {
 	
-	public static void main(String [] args){}
+	//public static void main(String [] args){}
 
 }

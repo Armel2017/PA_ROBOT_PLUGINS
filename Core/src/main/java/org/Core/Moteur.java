@@ -1,4 +1,4 @@
-package org.Core;
+package org.core;
 
 public class Moteur {
 

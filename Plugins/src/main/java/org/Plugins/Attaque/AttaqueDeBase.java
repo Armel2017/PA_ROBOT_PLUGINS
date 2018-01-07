@@ -1,12 +1,8 @@
-package org.Plugins.Attaque;
+package org.plugins.attaque;
 
 import java.lang.annotation.*;
 
-public class AttaqueDeBase {
+public @interface AttaqueDeBase {
 	
-	public static void main(String [] args)
-	{
-		
-	}
-
+	
 }

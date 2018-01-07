@@ -1,4 +1,4 @@
-package org.Gui_RobotWar;
+package org.gui_robot_war;
 
 public class Drawable {
 

@@ -1,4 +1,4 @@
-package org.Gui_RobotWar;
+package org.gui_robot_war;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
