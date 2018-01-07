@@ -1,4 +1,4 @@
-package org.plugins;
+package org.Plugins;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

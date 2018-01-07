@@ -1,4 +1,4 @@
-package org.plugins.graphisme;
+package org.Plugins.Graphisme;
 
 public @interface GraphismeDeBase {
 
