@@ -5,3 +5,6 @@ nbproject
 .project
 .idea
 /bin/
+
+.metadata
+.recommenders
