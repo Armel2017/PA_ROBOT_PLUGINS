@@ -6,6 +6,6 @@ nbproject
 .idea
 /bin/
 
-.metadata
+.metadata/*
 .recommenders
 
