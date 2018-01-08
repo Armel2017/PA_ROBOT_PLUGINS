@@ -1,4 +1,4 @@
-package org.Plugins.Attaque;
+package org.plugins.attaque;
 
 import java.lang.annotation.*;
 

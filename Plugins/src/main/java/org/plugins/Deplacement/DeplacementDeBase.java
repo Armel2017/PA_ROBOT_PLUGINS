@@ -1,4 +1,4 @@
-package org.Plugins.Deplacement;
+package org.plugins.deplacement;
 
 public @interface DeplacementDeBase {
 
