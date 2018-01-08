@@ -1,0 +1,9 @@
+target
+nbproject
+.classpath
+.settings
+.project
+.idea
+/bin/
+
+.metadata
