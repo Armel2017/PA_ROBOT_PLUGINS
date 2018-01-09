@@ -7,10 +7,10 @@
     <artifactId>PA2017</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <groupId>unice.m1.miage</groupId>
-  <artifactId>Plugins</artifactId>
+  <groupId>org.pluginsadditionnels</groupId>
+  <artifactId>plugins-additionnels</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>Plugins</name>
+  <name>plugins-additionnels</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,7 +26,6 @@
       <groupId>unice.m1.miage</groupId>
       <artifactId>Core</artifactId>
       <version>1.0-SNAPSHOT</version>
-
     </dependency>
   </dependencies>
 </project>

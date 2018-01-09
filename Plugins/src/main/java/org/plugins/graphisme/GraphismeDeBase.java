@@ -1,5 +1,5 @@
 package org.plugins.graphisme;
 
-public @interface GraphismeDeBase {
+public class GraphismeDeBase {
 
 }
