@@ -1,5 +1,5 @@
 package org.plugins.deplacement;
 
-public @interface DeplacementDeBase {
+public class DeplacementDeBase {
 
 }

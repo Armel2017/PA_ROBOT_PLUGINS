@@ -72,4 +72,13 @@ public class Robot {
 	public void action() {
 		
 	}
+
+	/**calcul la distance entre deux robots*/
+	public double distance(Robot rob){
+		double xdiff=this.posX-rob.posX;
+		double ydiff=this.posY-rob.posY;
+		double xdiffCarre=Math.pow(xdiff,2);
+		double ydiffCarre=Math.pow(ydiff,2);
+		return Math.sqrt(xdiffCarre+ydiffCarre);
+	}
 }
