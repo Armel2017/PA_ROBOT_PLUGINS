@@ -4,6 +4,7 @@ import java.util.List;
 import org.core.*;
 import org.plugins.*;
 
+
 /**
  * cette classe permet de gerer le plugin
  * de deplacement "directionRobot", soit chaque robot
@@ -27,14 +28,6 @@ public class DeplacementRobot {
 
 			}
 		}
-	}
-	
-	@Plugin(name = "Vitesse", type = PluginType.DEPLACEMENT)
-	public void prochainDeplacement(Robot r){
-		r.setEnergie(100);
-		
-			
-		
 	}
 	
 }

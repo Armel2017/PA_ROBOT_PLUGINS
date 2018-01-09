@@ -24,8 +24,7 @@ public interface IA {
 	public boolean approachOthers(Robot robot);
 	
 	public boolean attaquerMax(Robot robot);
-	
-	public String getLibelle();
+
 
 	
 
