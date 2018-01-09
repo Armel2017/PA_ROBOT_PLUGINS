@@ -1,7 +1,6 @@
 package org.plugins.attaque;
 
 import java.util.List;
-import java.lang.annotation.*;
 import org.core.*;
 import org.plugins.*;
 
