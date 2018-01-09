@@ -11,12 +11,19 @@ import org.plugins.*;
 
 public class AttaqueShiruken{
 
+	public static final int DEGAT_PRIS=5;
+	public static final int ENERGIE_PRIS=30;
+
+	/**Envoie un shiruken au robot le plus proche et on lui enleve 5 degats
+	 et l' attaquand perd 30 points d'energie*/
 	@Plugin(name="AttaqueShiruken", type=PluginType.ATTAQUE)
 	public void attaque(Robot attaquant, List<Robot> list){
 		List<Robot> robotsTrie=new ArrayList<Robot>(list);
 		RobotDistanceComparator rdc=new RobotDistanceComparator(attaquant);
 		Collections.sort(robotsTrie,rdc);
-		Robot victime=robotsTrie.get(0);
+		Robot victime=robotsTrie.get(1);
+		victime.degatsPris(DEGAT_PRIS);
+		victime.setEnergie(victime.getEnergie()-ENERGIE_PRIS);
 	}
 
 	private class RobotDistanceComparator implements Comparator<Robot>{
