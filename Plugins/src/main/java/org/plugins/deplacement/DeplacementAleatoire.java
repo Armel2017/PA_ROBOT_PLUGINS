@@ -8,8 +8,8 @@ import org.plugins.PluginType;
 public class DeplacementAleatoire {
 	
 	
-	protected final static int DEFAULT_RAPIDITE = 5;
-	protected int rapiditeToPerform = DEFAULT_RAPIDITE;
+	protected final static int DEFAUT_RAPIDITE = 5;
+	protected int rapidite = DEFAUT_RAPIDITE;
 	@Plugin(name = "DeplacementAleatoire", type = PluginType.DEPLACEMENT)
 	public void deplacementRandom(DeplacementAleatoire rand, List<Robot> l)
 	{
@@ -18,9 +18,9 @@ public class DeplacementAleatoire {
 		double deplacementAleatoire = (Math.random()* distanceMax)+distanceMin;
 		for (Robot r:l){
 		
-		if (r.getDirectionCourante()==deplacementAleatoire)
+		if (r.getDirectionCourante()!=0)
 		{
-			r.setProchaineVitesse(rapiditeToPerform);
+			r.setProchaineVitesse(rapidite);
 			r.setProchaineDirection(deplacementAleatoire);
 		
 		}
