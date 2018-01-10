@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.util.Random;
 
 import org.core.Robot;
+import org.plugins.Graphisme;
 import org.plugins.Plugin;
 import org.plugins.PluginType;
 
@@ -14,7 +15,8 @@ import org.plugins.PluginType;
  * 
  */
 
-public class GrapgismeBarInfo {
+@Plugin(name = "GraphismeBarInfo", type = PluginType.GRAPHISME)
+public class GraphismeBarInfo {
 
 	private final static Random rand = new Random();
 
@@ -26,7 +28,7 @@ public class GrapgismeBarInfo {
 
 	private Color couleurFond = (new Color(colrgb[rand.nextInt(3)], colrgb[rand.nextInt(3)], colrgb[rand.nextInt(3)]));
 
-	@Plugin(name = "GraphismeBarInfo", type = PluginType.GRAPHISME)
+	@Graphisme(name="draw")
 	public void draw(Robot robot, Graphics g) {
 
 		// BAR DE VIE CADRE

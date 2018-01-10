@@ -8,13 +8,14 @@ import org.plugins.*;
 /**
  * cette classe permet de gerer le plugin
  * de deplacement "directionRobot", soit chaque robot
- * se deplace vers une direction donnée
+ * se deplace vers une direction donnï¿½e
  */
 
+@Plugin(name = "DeplacementRobot", type = PluginType.DEPLACEMENT)
 public class DeplacementRobot {
 
 
-	@Plugin(name = "DeplacementRobot", type = PluginType.DEPLACEMENT)
+	@Deplacement(name="deplacer")
 	public void deplacement(Robot deplacement, List<Robot> l)
 	{
 		int directionCourante =0;

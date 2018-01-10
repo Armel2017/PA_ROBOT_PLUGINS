@@ -8,7 +8,7 @@ import org.core.*;
 import org.plugins.*;
 
 
-
+@Plugin(name="AttaqueShiruken", type=PluginType.ATTAQUE)
 public class AttaqueShiruken{
 
 	public static final int DEGAT_PRIS=5;
@@ -16,7 +16,7 @@ public class AttaqueShiruken{
 
 	/**Envoie un shiruken au robot le plus proche et on lui enleve 5 degats
 	 et l' attaquand perd 30 points d'energie*/
-	@Plugin(name="AttaqueShiruken", type=PluginType.ATTAQUE)
+	@Attaque(name="attaque")
 	public void attaque(Robot attaquant, List<Robot> list){
 		List<Robot> robotsTrie=new ArrayList<Robot>(list);
 		RobotDistanceComparator rdc=new RobotDistanceComparator(attaquant);
@@ -36,7 +36,6 @@ public class AttaqueShiruken{
 
 		/** si r1 est plus proche de la cible, on renvoie un resultat negatif si r1==r2, on renvoie
 		0 sinon un resultat positif*/
-		@Override
 		public int compare(Robot r1, Robot r2){
 			double d1=r1.distance(cible);
 			double d2=r2.distance(cible);

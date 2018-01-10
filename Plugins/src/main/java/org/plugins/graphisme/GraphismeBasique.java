@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.util.Random;
 
 import org.core.Robot;
+import org.plugins.Graphisme;
 import org.plugins.Plugin;
 import org.plugins.PluginType;
 
@@ -13,7 +14,8 @@ import org.plugins.PluginType;
  * par un carre de couleur aleatoire sans barre de vie et d'energie
  */
 
-public class GrapgismeBasique {
+@Plugin(name="GraphismeBasique", type=PluginType.GRAPHISME)
+public class GraphismeBasique {
 
 	private final static Random rand = new Random();
 
@@ -21,7 +23,7 @@ public class GrapgismeBasique {
 
 	private Color couleurFond = (new Color(colrgb[rand.nextInt(3)], colrgb[rand.nextInt(3)], colrgb[rand.nextInt(3)]));
 
-	@Plugin(name="GraphismeBasique", type=PluginType.GRAPHISME)
+	@Graphisme(name="draw")
 	public void draw(Robot robot, Graphics g) {
 		int r = (int) (robot.getHeight() / 2) + 15;
 		int rX = (int) robot.getPosX();

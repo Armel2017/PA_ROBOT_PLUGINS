@@ -4,13 +4,13 @@ import java.util.List;
 import org.core.*;
 import org.plugins.*;
 
-
+@Plugin(name="AttaqueFacile", type=PluginType.ATTAQUE)
 public class AttaqueDeBase {
 
 	/** une attaque qui diminue les degats par 2, 
 	de tous les enemies dans une portee de 5.
 	Il consomme 10 energies par enemie attaque  */
-	@Plugin(name="AttaqueFacile", type=PluginType.ATTAQUE)
+	@Attaque(name="attaque")
 	public void attaque(Robot attaquant, List<Robot> lr){
 		for(Robot r: lr){
 			if(!r.equals(attaquant)){
