@@ -16,7 +16,7 @@ import org.plugins.PluginType;
  */
 
 @Plugin(name = "GraphismeBarInfo", type = PluginType.GRAPHISME)
-public class GraphismeBarInfo {
+public class XXGraphismeBarInfo {
 
 	private final static Random rand = new Random();
 
@@ -31,7 +31,7 @@ public class GraphismeBarInfo {
 	@Graphisme(name="draw")
 	public void draw(Robot robot, Graphics g) {
 
-		// BAR DE VIE CADRE
+		/*// BAR DE VIE CADRE
 		g.setColor(Color.GRAY);
 		g.drawRect((int) (robot.getPosX() - robot.getWidth() / 2), (int) (robot.getPosY() + robot.getWidth() / 2 + 20),
 				(int) robot.getWidth(), 5);
@@ -79,7 +79,7 @@ public class GraphismeBarInfo {
 		g.setColor(Color.yellow);
 		g.fillPolygon(new int[] { jx, kx, lx }, new int[] { jy, ky, ly }, 3);
 		g.setColor(couleurFond);
-		g.drawPolygon(new int[] { jx, kx, lx }, new int[] { jy, ky, ly }, 3);
+		g.drawPolygon(new int[] { jx, kx, lx }, new int[] { jy, ky, ly }, 3);*/
 
 	}
 
