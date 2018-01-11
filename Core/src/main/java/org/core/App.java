@@ -27,6 +27,7 @@ public class App {
 	
 	
 	    JPanel panel = new JPanel(null);
+	    JMenuBar menuBar = new JMenuBar();
 	
 	    frame.add(panel);
         frame.setVisible(true);

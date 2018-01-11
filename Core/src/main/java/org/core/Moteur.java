@@ -10,8 +10,8 @@ import java.util.LinkedList;
 
 
 public class Moteur {
-	private static final String pluginsAdd = "../plugins-additionnels/target/classes";
-	private static final String plugins = "../Plugins/target/classes";
+	private static final String pluginsAdd = "plugins-additionnels/target/classes";
+	private static final String plugins = "Plugins/target/classes";
 
 	// Chargement des classes dans le package du type de plugin specifié
 	// TODO : Chercher d'abord dans plugins-additionnels puis compléter avec Plugins
