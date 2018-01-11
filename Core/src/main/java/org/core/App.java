@@ -27,8 +27,10 @@ public class App {
 	
 	    JPanel panel = new JPanel(null);
 	    JMenuBar menuBar = new JMenuBar();
+	    menuBar.add(new AdditionnelPluginMenu());
 	
 	    frame.add(panel);
+	    frame.setJMenuBar(menuBar);
         frame.setVisible(true);
 
 		// Classes correspondantes aux plugins

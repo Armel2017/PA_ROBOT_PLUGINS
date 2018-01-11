@@ -21,7 +21,8 @@ public class Repository<T> {
     		// Instanciation du ClassLoader avec un path défini
         ArrayList<File> paths = new ArrayList<File>();
         paths.add(base);
-        paths.add(new File("Core/target/classes"));
+        //paths.add(new File("Core/target/classes"));
+        paths.add(new File("Plugins/target/classes"));
         ClassLoader classLoader = new ClassLoader(paths);
         
         //Conversion en byte array du fichier de la classe Plugin du module Plugins
@@ -68,5 +69,7 @@ public class Repository<T> {
 		}
 		return b;
 	}
+
+    
 
 }
