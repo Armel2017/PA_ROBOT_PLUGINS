@@ -27,7 +27,7 @@ public class App {
 	
 	    JPanel panel = new JPanel(null);
 	    JMenuBar menuBar = new JMenuBar();
-	    menuBar.add(new AdditionnelPluginMenu());
+	    //menuBar.add(new AdditionnelPluginMenu());
 	
 	    frame.add(panel);
 	    frame.setJMenuBar(menuBar);
@@ -62,11 +62,11 @@ public class App {
 	    //robots.add(r3);
 	    //robots.add(r4);
 		
-		Object[] graphArgs = new Object[3];
-		graphArgs[2] = panel;
+		Object[] graphArgs = new Object[4];
+		graphArgs[3] = panel;
 		
-		Object[] graphArgs2 = new Object[3];
-		graphArgs2[2] = panel;
+		Object[] graphArgs2 = new Object[4];
+		graphArgs2[3] = panel;
 		
 		Object[] deplArgs = new Object[2];
 		Object nouvellesPos;
@@ -79,9 +79,11 @@ public class App {
 				panel.removeAll();
 				graphArgs[0] = r1.getPosX();
 				graphArgs[1] = r1.getPosY();
+				graphArgs[2] = r1.getNom();
 				methodesGraphisme[0].invoke(pluginGraphisme, graphArgs);
 				graphArgs2[0] = r2.getPosX();
 				graphArgs2[1] = r2.getPosY();
+				graphArgs2[2] = r2.getNom();
 				methodesGraphisme2[0].invoke(pluginGraphisme2, graphArgs2);
 				
 				caracsAttaque = methodesAttaque[0].invoke(pluginAttaque, (Object[]) null);
@@ -101,7 +103,7 @@ public class App {
 							
 							r.degatsPris(((int[])caracsAttaque)[0]);
 							robot.setEnergie(robot.getEnergie() - (((int[])caracsAttaque)[1]));
-							System.out.println(r.getNom() + " vie restante : " + r.getVie());
+							System.out.println(robot.getNom() + " attaque " + r.getNom() + ", vie restante : " + r.getVie());
 							if(r.getVie() <= 0) {
 								robots.remove(r);
 							}
@@ -114,7 +116,6 @@ public class App {
 				}
 				
 				TimeUnit.SECONDS.sleep(1);
-				System.out.println(r1.distance(r2));
 				
 			} catch (IllegalAccessException e) {
 				// TODO Auto-generated catch block
@@ -131,6 +132,12 @@ public class App {
 			}
 		}
 		
+		JLabel winnerlabel = new JLabel(robots.get(0).getNom() + " est le vainqueur !");
+		winnerlabel.setBounds((bordX/2)-200, (bordY/2)-200, 200, 200);
+		winnerlabel.setOpaque(true);
+		panel.add(winnerlabel);
+		panel.revalidate();
+		panel.repaint();
 		System.out.println(robots.get(0).getNom() + " est le vainqueur !");
 
 	}

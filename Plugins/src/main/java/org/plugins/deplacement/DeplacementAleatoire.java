@@ -3,7 +3,7 @@ package org.plugins.deplacement;
 import java.util.List;
 import java.util.Random;
 
-// import org.core.Robot;
+
 import org.plugins.Deplacement;
 import org.plugins.Plugin;
 import org.plugins.PluginType;

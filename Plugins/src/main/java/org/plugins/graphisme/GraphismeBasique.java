@@ -29,11 +29,11 @@ public class GraphismeBasique {
 	private Color couleurFond = (new Color(colrgb[rand.nextInt(3)], colrgb[rand.nextInt(3)], colrgb[rand.nextInt(3)]));
 
 	@Graphisme(name="draw")
-	public void draw(int posX, int posY, JPanel panel) {
+	public void draw(int posX, int posY, String name, JPanel panel) {
 		
 		
-		JLabel label = new JLabel();
-		label.setBounds(new Rectangle(posX, posY, 40, 40));
+		JLabel label = new JLabel(name);
+		label.setBounds(new Rectangle(posX, posY, 50, 50));
 		label.setBackground(new Color(colrgb[0],colrgb[1],colrgb[2]));
 		label.setOpaque(true);
 

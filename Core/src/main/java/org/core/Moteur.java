@@ -10,8 +10,8 @@ import java.util.LinkedList;
 
 
 public class Moteur {
-	private static final String pluginsAdd = "plugins-additionnels/target/classes";
-	private static final String plugins = "Plugins/target/classes";
+	private static final String pluginsAdd = "../../plugins-additionnels/target/classes";
+	private static final String plugins = "../../Plugins/target/classes";
 
 	// Chargement des classes dans le package du type de plugin specifié
 	// TODO : Chercher d'abord dans plugins-additionnels puis compléter avec Plugins
@@ -21,6 +21,12 @@ public class Moteur {
 		ArrayList<Class<?>> classes = repository.load();
 
 		// Pour chaque classe chargée, verfier si le package correspond à celui specifié
+		Object returnClass = this.getPluginBasique(classes, typePlugin);
+
+		return returnClass;
+	}
+
+	public Object getPluginBasique(ArrayList<Class<?>> classes, String typePlugin) {
 		for (Class<?> c : classes) {
 			try {	
 				if(c.getName().matches("org.plugins."+ typePlugin + ".*")) {
@@ -48,10 +54,40 @@ public class Moteur {
 				e1.printStackTrace();
 			}
 		}
-
 		return null;
 	}
-
+	
+	public Object getPluginAdditionnel(ArrayList<Class<?>> classes, String typePlugin) {
+		for (Class<?> c : classes) {
+			try {	
+				if(c.getName().matches("org.pluginsadditionnels."+ typePlugin + ".*")) {
+					System.out.println(c.getName());
+					// Retourne la première class appropriée trouvée
+					return c.getConstructor().newInstance();
+				}
+			} catch (InstantiationException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IllegalAccessException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IllegalArgumentException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (InvocationTargetException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (NoSuchMethodException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (SecurityException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		return null;
+	}
+	
 	// Récupération de toutes les méthodes nécessaires en fonction du name des annotations
 	public Method[] getMethodesAttque(Method[] methods) {
 		Method[] methodesAttaque = new Method[2];
