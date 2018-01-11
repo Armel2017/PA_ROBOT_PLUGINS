@@ -11,7 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-import org.guirobotwar.Terrain;
 
 public class App {
 	private static final int bordX = 600;
