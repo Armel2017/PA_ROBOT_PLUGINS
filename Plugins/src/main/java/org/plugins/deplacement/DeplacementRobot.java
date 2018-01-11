@@ -26,7 +26,6 @@ public class DeplacementRobot {
 			{
 				directionCourante = directionCourante -1;
 				deplacement.setDirectionCourante(directionCourante);
-
 			}
 		}
 	}
