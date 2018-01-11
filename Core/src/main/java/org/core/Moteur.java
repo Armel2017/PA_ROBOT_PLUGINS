@@ -54,13 +54,16 @@ public class Moteur {
 
 	// Récupération de toutes les méthodes nécessaires en fonction du name des annotations
 	public Method[] getMethodesAttque(Method[] methods) {
-		Method[] methodesAttaque = new Method[1];
+		Method[] methodesAttaque = new Method[2];
         for (Method method : methods) {
             Annotation[] annotations = method.getDeclaredAnnotations();
             for (Annotation annotation : annotations) {
             		System.out.println(annotation.toString());
             		if(annotation.toString().matches(".*.name=attaque.*")) {
             			methodesAttaque[0] = method;
+            		}
+            		else if(annotation.toString().matches(".*.name=portee.*")) {
+            			methodesAttaque[1] = method;
             		}
             }
         }

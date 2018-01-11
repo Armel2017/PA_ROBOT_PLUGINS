@@ -46,18 +46,19 @@ public class App {
 		Method[] methodesGraphisme2 = moteur.getMethodesGraphisme(pluginGraphisme2.getClass().getDeclaredMethods());
 
 		System.out.println(methodesAttaque[0].getName());
+		System.out.println(methodesAttaque[1].getName());
 		System.out.println(methodesDeplacement[0].getName());
 		System.out.println(methodesGraphisme[0].getName());
 		
 		LinkedList<Robot> robots = new LinkedList<Robot>();
 		Robot r1 = new Robot("robot1", 10, 10);
-	    Robot r2 = new Robot("robot2", 300, 300);
+	    Robot r2 = new Robot("robot2", 30, 30);
 	    Robot r3 = new Robot("robot3", 45, 90);
 	    Robot r4 = new Robot("robot3", 450, 100);
 	    robots.add(r1);
 	    robots.add(r2);
-	    robots.add(r3);
-	    robots.add(r4);
+	    //robots.add(r3);
+	    //robots.add(r4);
 		
 		Object[] graphArgs = new Object[3];
 		graphArgs[2] = panel;
@@ -67,6 +68,8 @@ public class App {
 		
 		Object[] deplArgs = new Object[2];
 		Object nouvellesPos;
+		
+		Object caracsAttaque;
 		
 		while(true) {
 			// Appel d'une méthode de plugin
@@ -79,6 +82,8 @@ public class App {
 				graphArgs2[1] = r2.getPosY();
 				methodesGraphisme2[0].invoke(pluginGraphisme2, graphArgs2);
 				
+				caracsAttaque = methodesAttaque[0].invoke(pluginAttaque, (Object[]) null);
+				
 				for(Robot robot : robots) {
 					deplArgs[0] = robot.getPosX();
 					deplArgs[1] = robot.getPosY();
@@ -88,6 +93,22 @@ public class App {
 					deplArgs[0] = robot.getPosX();
 					robot.setPosY(((int[]) nouvellesPos)[1], bordY);
 					deplArgs[1] = robot.getPosY();
+					
+					for(Robot r : robots) {
+						if(!robot.equals(r) && robot.distance(r) <= (Integer)(methodesAttaque[1].invoke(pluginAttaque, (Object[]) null))){
+							
+							r.degatsPris(((int[])caracsAttaque)[0]);
+							robot.setEnergie(robot.getEnergie() - (((int[])caracsAttaque)[1]));
+							System.out.println(r.getNom() + " vie restante : " + r.getVie());
+							if(r.getVie() <= 0) {
+								robots.remove(r);
+							}
+						}
+					}
+				}
+				
+				if(robots.size() == 1) {
+					break;
 				}
 				
 				TimeUnit.SECONDS.sleep(1);
@@ -108,6 +129,7 @@ public class App {
 			}
 		}
 		
+		System.out.println(robots.get(0).getNom() + " est le vainqueur !");
 
 	}
 }
