@@ -2,9 +2,14 @@ package org.plugins.graphisme;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.util.LinkedList;
 import java.util.Random;
 
-import org.core.Robot;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+// import org.core.Robot;
 import org.plugins.Graphisme;
 import org.plugins.Plugin;
 import org.plugins.PluginType;
@@ -24,8 +29,21 @@ public class GraphismeBasique {
 	private Color couleurFond = (new Color(colrgb[rand.nextInt(3)], colrgb[rand.nextInt(3)], colrgb[rand.nextInt(3)]));
 
 	@Graphisme(name="draw")
-	public void draw(Robot robot, Graphics g) {
-		int r = (int) (robot.getHeight() / 2) + 15;
+	public void draw(int posX, int posY, String name, JPanel panel) {
+		
+		
+		JLabel label = new JLabel(name);
+		label.setBounds(new Rectangle(posX, posY, 50, 50));
+		label.setBackground(new Color(colrgb[0],colrgb[1],colrgb[2]));
+		label.setOpaque(true);
+
+		panel.add(label);
+		
+		panel.revalidate();
+		panel.repaint();
+		
+		
+		/*int r = (int) (robot.getHeight() / 2) + 15;
 		int rX = (int) robot.getPosX();
 		int rY = (int) robot.getPosY();
 
@@ -50,7 +68,7 @@ public class GraphismeBasique {
 		g.setColor(Color.yellow);
 		g.fillPolygon(new int[] { jx, kx, lx }, new int[] { jy, ky, ly }, 3);
 		g.setColor(couleurFond);
-		g.drawPolygon(new int[] { jx, kx, lx }, new int[] { jy, ky, ly }, 3);
+		g.drawPolygon(new int[] { jx, kx, lx }, new int[] { jy, ky, ly }, 3);*/
 
 	}
 

@@ -5,35 +5,20 @@ import java.awt.Color;
 public class Robot {
 
 	private String nom;
-	private int nbVie;
-	static public int nbVieInit;
-	private int energie;
-	static public int energieInit;
-	private double posX;
-	private double posY;
+	private int vie = 100;
+	private int energie = 100;
+	private int posX;
+	private int posY;
 	private boolean EstEnVie;
 	private Color couleur;
 
 	protected double champDeVue, vitesseCourante, directionCourante, width, height, prochaineVitesse,
 			prochaineDirection;
 
-	public Robot(String nom, int energie, double posX, double posY, boolean estEnVie, Color couleur,
-			double champDeVue, double vitesseCourante, double directionCourante, double width, double height,
-			double prochaineVitesse, double prochaineDirection) {
+	public Robot(String nom, int posX, int posY) {
 		this.nom = nom;
-		nbVieInit = 100;
-		this.energie = energie;
 		this.posX = posX;
 		this.posY = posY;
-		EstEnVie = estEnVie;
-		this.couleur = couleur;
-		this.champDeVue = champDeVue;
-		this.vitesseCourante = vitesseCourante;
-		this.directionCourante = directionCourante;
-		this.width = width;
-		this.height = height;
-		this.prochaineVitesse = prochaineVitesse;
-		this.prochaineDirection = prochaineDirection;
 	}
 
 	public Color getCouleur() {
@@ -96,12 +81,12 @@ public class Robot {
 		this.prochaineDirection = prochaineDirection;
 	}
 
-	public int getNbVie() {
-		return this.nbVie;
+	public int getVie() {
+		return this.vie;
 	}
 
-	public void setNbVie(int newNbVie) {
-		this.nbVie = newNbVie;
+	public void setVie(int newVie) {
+		this.vie = newVie;
 	}
 
 	public int getEnergie() {
@@ -112,15 +97,35 @@ public class Robot {
 		this.energie = newEnergie;
 	}
 
-	public double getPosX() {
+	public int getPosX() {
 		return this.posX;
 	}
 
-	public void setPosX(int newPosX) {
-		this.posX = newPosX;
+	public void setPosX(int newPosX, int bordX) {
+		if(newPosX > bordX) {
+			this.posX = bordX;
+		}
+		else if(newPosX < 0) {
+			this.posX = 0;
+		}
+		else {
+			this.posX = newPosX;
+		}
 	}
 
-	public double getPosY() {
+	public void setPosY(int newPosY, int bordY) {
+		if(newPosY > bordY) {
+			this.posX = bordY;
+		}
+		else if(newPosY < 0) {
+			this.posX = 0;
+		}
+		else {
+			this.posX = newPosY;
+		}
+	}
+	
+	public int getPosY() {
 		return this.posY;
 	}
 
@@ -132,18 +137,10 @@ public class Robot {
 		this.EstEnVie = newEstEnVie;
 	}
 
-	public int getNbVieInit() {
-		return nbVieInit;
-	}
-
-	public void setNbVieInit(int nbVieInit) {
-		this.nbVieInit = nbVieInit;
-	}
-
 	// Les degats
 	public void degatsPris(int degats) {
-		this.nbVie -= degats;
-		if (getNbVie() <= 0) {
+		this.vie -= degats;
+		if (getVie() <= 0) {
 			this.setEstEnVie(false);
 		}
 	}

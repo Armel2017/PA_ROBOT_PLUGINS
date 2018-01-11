@@ -1,7 +1,9 @@
 package org.plugins.deplacement;
 
 import java.util.List;
-import org.core.Robot;
+import java.util.Random;
+
+
 import org.plugins.Deplacement;
 import org.plugins.Plugin;
 import org.plugins.PluginType;
@@ -13,22 +15,17 @@ public class DeplacementAleatoire {
 	protected int rapidite = DEFAUT_RAPIDITE;
 	
 	@Deplacement(name="deplacer")
-	public void deplacementRandom(DeplacementAleatoire rand, List<Robot> l)
+	public int[] deplacementRandom(int posX, int posY)
 	{
-		int distanceMin=0;
-		int distanceMax= 50;
-		double deplacementAleatoire = (Math.random()* distanceMax)+distanceMin;
-		for (Robot r:l){
+		int[] nouvellesPos = new int[2];
+		int distanceMin= -10;
+		int distanceMax= 10;
+		Random rand = new Random();
 		
-		if (r.getDirectionCourante()!=0)
-		{
-			r.setProchaineVitesse(rapidite);
-			r.setProchaineDirection(deplacementAleatoire);
-		
-		}
-		
-		}
+		nouvellesPos[0] = posX + ((int)((rand.nextInt(10) * distanceMin)+distanceMax * rand.nextInt(10)));
+		nouvellesPos[1] = posY + ((int)((rand.nextInt(10) * distanceMin)+distanceMax * rand.nextInt(10)));
 	
+		return nouvellesPos;
 	}
 
 }

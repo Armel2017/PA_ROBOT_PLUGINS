@@ -1,7 +1,7 @@
 package org.plugins.deplacement;
 
 import java.util.List;
-import org.core.*;
+// import org.core.*;
 import org.plugins.*;
 
 
@@ -15,10 +15,10 @@ import org.plugins.*;
 public class DeplacementRobot {
 
 
-	@Deplacement(name="deplacer")
-	public void deplacement(Robot deplacement, List<Robot> l)
-	{
-		int directionCourante =0;
+	//@Deplacement(name="deplacer")
+	/*public void deplacement(Robot deplacement, List<Robot> l)
+	{*/
+		/*int directionCourante =0;
 
 		for (Robot robot:l)
 		{
@@ -27,7 +27,7 @@ public class DeplacementRobot {
 				directionCourante = directionCourante -1;
 				deplacement.setDirectionCourante(directionCourante);
 			}
-		}
-	}
+		}*/
+	//}
 	
 }

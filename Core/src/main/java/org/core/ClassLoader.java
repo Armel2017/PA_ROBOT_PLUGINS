@@ -26,10 +26,11 @@ public class ClassLoader extends SecureClassLoader{
 		for (File path : paths) {
 			if (path.isDirectory()) {
 				b = loadClassData(name, path);
+				if(b != null) break;
 			}
 		}
 		if (b == null) {
-			throw new java.lang.ClassNotFoundException();
+			throw new java.lang.ClassNotFoundException("classe " + name + " pas trouve parmi " + paths);
 		}
 		else {
 			return super.defineClass(name, b, 0, b.length);
@@ -41,14 +42,17 @@ public class ClassLoader extends SecureClassLoader{
 		byte[] b = null;
 		name = name.replace(".", File.separator);
 		File classPath = new File(path.toString() + File.separator + name + ".class");
+		
 		if (path.isDirectory() && classPath.isFile()) {
 			try {
 				b = new byte[(int) classPath.length()];
 				b = Files.readAllBytes(classPath.toPath());
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
+
 		return b;
 	}
 	
