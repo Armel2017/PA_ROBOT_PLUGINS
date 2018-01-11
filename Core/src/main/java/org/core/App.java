@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.WindowConstants;
 
 

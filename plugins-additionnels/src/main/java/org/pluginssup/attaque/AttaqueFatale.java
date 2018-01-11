@@ -1,6 +1,5 @@
 package org.pluginssup.attaque;
 
-import org.core.*;
 import org.plugins.*;
 import java.util.*;
 
@@ -15,11 +14,16 @@ public class AttaqueFatale {
 
 	/**Tue un robot au hasard*/
 	@Attaque(name="attaque")
-	public void attaque(Robot attaquant, List<Robot> list){
-		Robot victime=list.get(rand.nextInt(list.size()));
-		victime.degatsPris(DEGAT_PRIS);
-		victime.setEnergie(victime.getEnergie()-ENERGIE_PRIS);
+	public int[] attaque(){
+		return new int[]{DEGAT_PRIS, ENERGIE_PRIS};
 	}
+
+	@Portee(name="portee")
+	public int portee() {
+		return 10;
+	}
+
+
 
 	
 }

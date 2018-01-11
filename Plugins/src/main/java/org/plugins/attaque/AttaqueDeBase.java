@@ -1,7 +1,7 @@
 package org.plugins.attaque;
 
 import java.util.List;
-import org.core.*;
+// import org.core.*;
 import org.plugins.*;
 
 @Plugin(name="AttaqueFacile", type=PluginType.ATTAQUE)

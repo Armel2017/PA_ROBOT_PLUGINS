@@ -9,7 +9,7 @@ import java.util.Random;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import org.core.Robot;
+// import org.core.Robot;
 import org.plugins.Graphisme;
 import org.plugins.Plugin;
 import org.plugins.PluginType;

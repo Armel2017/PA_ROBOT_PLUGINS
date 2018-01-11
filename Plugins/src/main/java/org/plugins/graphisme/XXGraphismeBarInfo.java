@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
-import org.core.Robot;
+// import org.core.Robot;
 import org.plugins.Graphisme;
 import org.plugins.Plugin;
 import org.plugins.PluginType;
@@ -29,7 +29,7 @@ public class XXGraphismeBarInfo {
 	private Color couleurFond = (new Color(colrgb[rand.nextInt(3)], colrgb[rand.nextInt(3)], colrgb[rand.nextInt(3)]));
 
 	@Graphisme(name="draw")
-	public void draw(Robot robot, Graphics g) {
+	public void draw( Graphics g) {
 
 		/*// BAR DE VIE CADRE
 		g.setColor(Color.GRAY);
