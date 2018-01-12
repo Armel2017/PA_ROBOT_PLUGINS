@@ -1,6 +1,6 @@
 package org.core;
 
-import java.awt.List;
+import java.util.List;
 import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
@@ -90,49 +90,49 @@ public class Moteur {
 	
 	// Récupération de toutes les méthodes nécessaires en fonction du name des annotations
 	public Method[] getMethodesAttque(Method[] methods) {
-		Method[] methodesAttaque = new Method[2];
+		List<Method> methodesAttaque = new ArrayList<Method>();
         for (Method method : methods) {
             Annotation[] annotations = method.getDeclaredAnnotations();
             for (Annotation annotation : annotations) {
             		System.out.println(annotation.toString());
             		if(annotation.toString().matches(".*.name=attaque.*")) {
-            			methodesAttaque[0] = method;
+            			methodesAttaque.add(method);
             		}
             		else if(annotation.toString().matches(".*.name=portee.*")) {
-            			methodesAttaque[1] = method;
+            			methodesAttaque.add(method);
             		}
             }
         }
-		return methodesAttaque;
+		return methodesAttaque.toArray(new Method[0]);
 	}
 	
 	// Récupération de toutes les méthodes nécessaires en fonction du name des annotations
 	public Method[] getMethodesDeplacement(Method[] methods) {
-		Method[] methodesDeplacement = new Method[1];
+		List<Method> methodesDeplacement = new ArrayList<Method>();
         for (Method method : methods) {
             Annotation[] annotations = method.getDeclaredAnnotations();
             for (Annotation annotation : annotations) {
             		System.out.println(annotation.toString());
             		if(annotation.toString().matches(".*.name=deplacer.*")) {
-            			methodesDeplacement[0] = method;
+            			methodesDeplacement.add(method);
             		}
             }
         }
-		return methodesDeplacement;
+		return methodesDeplacement.toArray(new Method[0]);
 	}
 
 	// Récupération de toutes les méthodes nécessaires en fonction du name des annotations
 	public Method[] getMethodesGraphisme(Method[] methods) {
-		Method[] methodesGraphisme = new Method[1];
+		List<Method> methodesGraphisme = new ArrayList<Method>();
         for (Method method : methods) {
             Annotation[] annotations = method.getDeclaredAnnotations();
             for (Annotation annotation : annotations) {
             		System.out.println(annotation.toString());
             		if(annotation.toString().matches(".*.name=draw.*")) {
-            			methodesGraphisme[0] = method;
+            			methodesGraphisme.add( method);
             		}
             }
         }
-		return methodesGraphisme;
+		return methodesGraphisme.toArray(new Method[0]);
 	}
 }
