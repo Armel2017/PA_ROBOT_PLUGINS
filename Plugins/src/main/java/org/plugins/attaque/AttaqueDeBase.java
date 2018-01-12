@@ -7,7 +7,7 @@ import org.plugins.*;
 @Plugin(name="AttaqueFacile", type=PluginType.ATTAQUE)
 public class AttaqueDeBase {
 
-	private final static int PORTEE = 30;
+	private final static int PORTEE = 60;
 	private final static int DEGATS = 20;
 	private final static int ENERGIE = 10;
 	
