@@ -1,12 +1,13 @@
 package org.core;
 
-import java.util.List;
 import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+import java.awt.Point;
 
 
 public class Moteur {
@@ -90,49 +91,60 @@ public class Moteur {
 	
 	// Récupération de toutes les méthodes nécessaires en fonction du name des annotations
 	public Method[] getMethodesAttque(Method[] methods) {
-		List<Method> methodesAttaque = new ArrayList<Method>();
+		Method[] methodesAttaque = new Method[2];
         for (Method method : methods) {
             Annotation[] annotations = method.getDeclaredAnnotations();
             for (Annotation annotation : annotations) {
             		System.out.println(annotation.toString());
             		if(annotation.toString().matches(".*.name=attaque.*")) {
-            			methodesAttaque.add(method);
+            			methodesAttaque[0] = method;
             		}
             		else if(annotation.toString().matches(".*.name=portee.*")) {
-            			methodesAttaque.add(method);
+            			methodesAttaque[1] = method;
             		}
             }
         }
-		return methodesAttaque.toArray(new Method[0]);
+        return methodesAttaque;
 	}
 	
 	// Récupération de toutes les méthodes nécessaires en fonction du name des annotations
 	public Method[] getMethodesDeplacement(Method[] methods) {
-		List<Method> methodesDeplacement = new ArrayList<Method>();
+		Method[] methodesDeplacement = new Method[1];
         for (Method method : methods) {
             Annotation[] annotations = method.getDeclaredAnnotations();
             for (Annotation annotation : annotations) {
             		System.out.println(annotation.toString());
             		if(annotation.toString().matches(".*.name=deplacer.*")) {
-            			methodesDeplacement.add(method);
+            			methodesDeplacement[0] = method;
             		}
             }
         }
-		return methodesDeplacement.toArray(new Method[0]);
+        return methodesDeplacement;
 	}
 
 	// Récupération de toutes les méthodes nécessaires en fonction du name des annotations
 	public Method[] getMethodesGraphisme(Method[] methods) {
-		List<Method> methodesGraphisme = new ArrayList<Method>();
+		Method[] methodesGraphisme = new Method[1];
         for (Method method : methods) {
             Annotation[] annotations = method.getDeclaredAnnotations();
             for (Annotation annotation : annotations) {
             		System.out.println(annotation.toString());
             		if(annotation.toString().matches(".*.name=draw.*")) {
-            			methodesGraphisme.add( method);
+            			methodesGraphisme[0] = method;
             		}
             }
         }
-		return methodesGraphisme.toArray(new Method[0]);
+        return methodesGraphisme;
+	}
+	
+	//Récupération des positions de tous les robots, sauf celui passé en paramètre
+	public List<Point> getPositions(LinkedList<Robot> robots, Robot robotActuel) {
+		List<Point> points = new LinkedList<Point>();
+		for(Robot r : robots) {
+			if (r != robotActuel) {
+				points.add(new Point(r.getPosX(), r.getPosY()));
+			}
+		}
+		return points;
 	}
 }

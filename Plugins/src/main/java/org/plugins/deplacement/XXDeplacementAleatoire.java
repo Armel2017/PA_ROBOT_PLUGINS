@@ -1,5 +1,6 @@
 package org.plugins.deplacement;
 
+import java.awt.Point;
 import java.util.List;
 import java.util.Random;
 
@@ -9,13 +10,10 @@ import org.plugins.Plugin;
 import org.plugins.PluginType;
 
 @Plugin(name = "DeplacementAleatoire", type = PluginType.DEPLACEMENT)
-public class DeplacementAleatoire {
-	
-	protected final static int DEFAUT_RAPIDITE = 5;
-	protected int rapidite = DEFAUT_RAPIDITE;
+public class XXDeplacementAleatoire {
 	
 	@Deplacement(name="deplacer")
-	public int[] deplacementRandom(int posX, int posY)
+	public int[] deplacementRandom(int posX, int posY, List<Point> coordonneesRobots)
 	{
 		int[] nouvellesPos = new int[2];
 		int distanceMin= -10;

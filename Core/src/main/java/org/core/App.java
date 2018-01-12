@@ -24,7 +24,6 @@ public class App {
 	    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	    frame.setSize(bordX, bordY);
 	
-	
 	    JPanel panel = new JPanel(null);
 	    JMenuBar menuBar = new JMenuBar();
 	    //menuBar.add(new AdditionnelPluginMenu());
@@ -54,7 +53,7 @@ public class App {
 		
 		LinkedList<Robot> robots = new LinkedList<Robot>();
 		Robot r1 = new Robot("robot1", 10, 10);
-	    Robot r2 = new Robot("robot2", 30, 30);
+	    Robot r2 = new Robot("robot2", 300, 300);
 	    Robot r3 = new Robot("robot3", 45, 90);
 	    Robot r4 = new Robot("robot3", 450, 100);
 	    robots.add(r1);
@@ -68,7 +67,7 @@ public class App {
 		Object[] graphArgs2 = new Object[4];
 		graphArgs2[3] = panel;
 		
-		Object[] deplArgs = new Object[2];
+		Object[] deplArgs = new Object[3];
 		Object nouvellesPos;
 		
 		Object caracsAttaque;
@@ -91,6 +90,7 @@ public class App {
 				for(Robot robot : robots) {
 					deplArgs[0] = robot.getPosX();
 					deplArgs[1] = robot.getPosY();
+					deplArgs[2] = moteur.getPositions(robots, robot);
 					
 					nouvellesPos = methodesDeplacement[0].invoke(pluginDeplacement, deplArgs);
 					robot.setPosX(((int[]) nouvellesPos)[0], bordX);
