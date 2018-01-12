@@ -26,7 +26,6 @@ public class XXDeplacementRobot {
 			{
 				directionCourante = directionCourante -1;
 				deplacement.setDirectionCourante(directionCourante);
-
 			}
 		}*/
 	//}
