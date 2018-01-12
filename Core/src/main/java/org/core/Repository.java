@@ -24,7 +24,7 @@ public class Repository<T> {
         ClassLoader classLoader = new ClassLoader(paths);
         
         //Conversion en byte array du fichier de la classe Plugin du module Plugins
-        byte[] b = writeToByteArray(new File("../../Plugins/target/classes/org/plugins/Plugin.class"));
+        byte[] b = writeToByteArray(new File("Plugins/target/classes/org/plugins/Plugin.class"));
         // Défine class org.plugins.Plugin
         Class<?> pluginClass = classLoader.define("org.plugins.Plugin", b, 0, b.length);
         
