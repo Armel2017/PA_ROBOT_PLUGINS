@@ -21,6 +21,15 @@ public class Robot {
 		this.posY = posY;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if(o instanceof Robot) {
+			Robot r = (Robot)o;
+			return nom.equals(r.nom);
+		}
+		return false;
+	}
+
 	public Color getCouleur() {
 		return couleur;
 	}
@@ -121,7 +130,7 @@ public class Robot {
 			this.posX = 0;
 		}
 		else {
-			this.posX = newPosY;
+			this.posY = newPosY;
 		}
 	}
 	

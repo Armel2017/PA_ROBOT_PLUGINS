@@ -3,8 +3,8 @@ package org.core;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.*;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
@@ -49,11 +49,12 @@ public class App {
 		System.out.println(methodesAttaque[0].getName());
 		System.out.println(methodesAttaque[1].getName());
 		System.out.println(methodesDeplacement[0].getName());
+		System.out.println(Arrays.toString(methodesGraphisme));
 		System.out.println(methodesGraphisme[0].getName());
 		
 		LinkedList<Robot> robots = new LinkedList<Robot>();
 		Robot r1 = new Robot("robot1", 10, 10);
-	    Robot r2 = new Robot("robot2", 300, 300);
+	    Robot r2 = new Robot("robot2", 100, 200);
 	    Robot r3 = new Robot("robot3", 45, 90);
 	    Robot r4 = new Robot("robot3", 450, 100);
 	    robots.add(r1);
@@ -95,15 +96,16 @@ public class App {
 					nouvellesPos = methodesDeplacement[0].invoke(pluginDeplacement, deplArgs);
 					robot.setPosX(((int[]) nouvellesPos)[0], bordX);
 					deplArgs[0] = robot.getPosX();
+
 					robot.setPosY(((int[]) nouvellesPos)[1], bordY);
 					deplArgs[1] = robot.getPosY();
+
 					
 					for(Robot r : robots) {
 						if(!robot.equals(r) && robot.distance(r) <= (Integer)(methodesAttaque[1].invoke(pluginAttaque, (Object[]) null))){
 							
 							r.degatsPris(((int[])caracsAttaque)[0]);
 							robot.setEnergie(robot.getEnergie() - (((int[])caracsAttaque)[1]));
-							System.out.println(robot.getNom() + " attaque " + r.getNom() + ", vie restante : " + r.getVie());
 							if(r.getVie() <= 0) {
 								robots.remove(r);
 							}

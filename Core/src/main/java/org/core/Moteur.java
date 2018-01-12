@@ -141,7 +141,7 @@ public class Moteur {
 	public List<Point> getPositions(LinkedList<Robot> robots, Robot robotActuel) {
 		List<Point> points = new LinkedList<Point>();
 		for(Robot r : robots) {
-			if (r != robotActuel) {
+			if (!r.equals(robotActuel)) {
 				points.add(new Point(r.getPosX(), r.getPosY()));
 			}
 		}

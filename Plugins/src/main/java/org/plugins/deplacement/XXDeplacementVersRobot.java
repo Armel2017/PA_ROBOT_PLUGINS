@@ -7,7 +7,7 @@ import org.plugins.*;
 
 /** Va vers le robot le plus proche */
 @Plugin(name = "DeplacementVersRobot", type = PluginType.DEPLACEMENT)
-public class DeplacementVersRobot {
+public class XXDeplacementVersRobot {
 	
 	@Deplacement(name="deplacer")
 	public int[] deplacementRandom(int posX, int posY, List<Point> coordonneesRobots)
@@ -19,8 +19,8 @@ public class DeplacementVersRobot {
 		int[] nouvellesPos = new int[2];
 		if(coordonneesTousSaufMoi.size() > 0) {
 			Point cible = coordonneesTousSaufMoi.get(0);
-			nouvellesPos[0] = (cible.x - posX)/4;
-			nouvellesPos[1] = (cible.y - posY)/4;
+			nouvellesPos[0] += (cible.x - posX)/4;
+			nouvellesPos[1] += (cible.y - posY)/4;
 		} else {
 			int distanceMin= -10;
 			int distanceMax= 10;

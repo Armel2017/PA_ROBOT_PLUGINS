@@ -2,7 +2,7 @@ package org.plugins.deplacement;
 
 import java.awt.Point;
 import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 
 import org.plugins.Deplacement;
@@ -10,7 +10,7 @@ import org.plugins.Plugin;
 import org.plugins.PluginType;
 
 @Plugin(name = "DeplacementAleatoire", type = PluginType.DEPLACEMENT)
-public class XXDeplacementAleatoire {
+public class DeplacementAleatoire {
 	
 	@Deplacement(name="deplacer")
 	public int[] deplacementRandom(int posX, int posY, List<Point> coordonneesRobots)
