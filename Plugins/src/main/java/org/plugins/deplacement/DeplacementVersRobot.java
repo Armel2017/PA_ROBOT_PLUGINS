@@ -8,9 +8,6 @@ import org.plugins.*;
 /** Va vers le robot le plus proche */
 @Plugin(name = "DeplacementVersRobot", type = PluginType.DEPLACEMENT)
 public class DeplacementVersRobot {
-
-	protected final static int DEFAUT_RAPIDITE = 4;
-	protected int rapidite = DEFAUT_RAPIDITE;
 	
 	@Deplacement(name="deplacer")
 	public int[] deplacementRandom(int posX, int posY, List<Point> coordonneesRobots)

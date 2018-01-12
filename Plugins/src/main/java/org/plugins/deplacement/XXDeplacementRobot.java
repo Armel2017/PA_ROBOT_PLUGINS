@@ -12,7 +12,7 @@ import org.plugins.*;
  */
 
 @Plugin(name = "DeplacementRobot", type = PluginType.DEPLACEMENT)
-public class DeplacementRobot {
+public class XXDeplacementRobot {
 
 
 	//@Deplacement(name="deplacer")
